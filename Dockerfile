@@ -10,5 +10,5 @@ RUN apk --update add --no-cache --virtual .build-deps \
     apk del .build-deps && \
     apk add --no-cache libpq
 
-CMD ["/usr/local/bin/python3", "/usr/local/bin/gunicorn/gunicorn", "--bind 0.0.0.0:8000", "wsgi:helloworld"
+CMD ["gunicorn", "--bind 0.0.0.0:8000", "helloworld.wsgi"
 
