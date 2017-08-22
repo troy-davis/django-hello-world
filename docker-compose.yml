@@ -7,8 +7,6 @@ services:
       - "./postgres-data/:/var/lib/postgresql/data"
     ports:
       - 5432:5432
-    networks:
-      - salt
   redis_cache:
     image: redis:4-alpine
     hostname: redis
@@ -16,8 +14,6 @@ services:
       - "./redis-data/:/var/lib/redis"
     ports:
       - 6379:6379
-    networks:
-      - salt
   http:
     build: 
       context: .
@@ -25,15 +21,11 @@ services:
     working_dir: /code
     volumes:
       - "./code/:/code"
-#    entrypoint: /usr/local/bin/python3 /usr/local/bin/gunicorn --bind 0.0.0.0:8000 helloworld.wsgi
     entrypoint: gunicorn --bind 0.0.0.0:8000 helloworld.wsgi
     ports:
       - 8000:8000
     depends_on:
       - postgres_db
-    networks:
-      - salt
-# salt network is an overlay network
 networks:
-  salt:
-    external: true
+  default:
+
