@@ -1,10 +1,10 @@
 # django-hello-world
 
-Dev kit for:
+Dev kit to build django-redis-postgresql supported apps:
 
--Django http web app built on gunicorn http server.
--Django is configured to a use a redis container for cache.
--Django is configured to use a postgresql container for db.
+- Django http web app built on gunicorn http server.
+- Django is configured to a use a redis container for cache.
+- Django is configured to use a postgresql container for db.
 
 
 REQUIREMENTS:
