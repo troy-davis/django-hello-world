@@ -19,11 +19,14 @@ services:
     networks:
       - salt
   http:
-    build: .
+    build: 
+      context: .
     hostname: http
+    working_dir: /code
     volumes:
       - "./code/:/code"
-    entrypoint: python3 gunicorn 0.0.0.0:8000 helloworld.wsgi
+#    entrypoint: /usr/local/bin/python3 /usr/local/bin/gunicorn --bind 0.0.0.0:8000 helloworld.wsgi
+    entrypoint: gunicorn --bind 0.0.0.0:8000 helloworld.wsgi
     ports:
       - 8000:8000
     depends_on:

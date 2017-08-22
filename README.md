@@ -7,4 +7,16 @@ Dev kit for:
 -Django is configured to use a postgresql container for db.
 
 
-Cannot use python:3.4-alpine missing postgresql-dev, Error: pg_config executable not found 
+REQUIREMENTS:
+- docker
+- docker-compose
+
+USAGE:
+- docker-compose up
+- docker-compose stop
+- docker-compose destroy
+- Rebuild: docker-compose up --rebuild
+
+- detached mode: docker-compose up -d
+
+curl or in http browser: http://localhost:8000
